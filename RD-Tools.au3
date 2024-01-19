@@ -42,7 +42,7 @@ Const $pFODevSetupTool = @ScriptDir & "\AutoD365FODevSetupTool.exe"
 Const $pCalc = "calc.exe"
 ;Global $pPasswortManager = @DesktopDir & "\PW Tool\Rodl.PW.Tool.exe" ; funktioniert nicht
 
-Global $pLabelfinder = @ScriptDir & "\RD_Labelfinder2.exe"
+Global $pLabelfinder = @ScriptDir & "\RDD_Labelfinder2.exe"
 
 Global $iDevSetup = TrayCreateItem("FODevSetUp")
 Global $iServiceManager = TrayCreateItem("ServiceManager")
@@ -54,6 +54,7 @@ Const $iExit = TrayCreateItem("Beenden")
 
 Global $LabelDatei = @ScriptDir& "\Labels.txt"
 Global $Labels[0][4]
+Global $openedByLauncher
 
 ;ReadIn()
 ReadIn()
@@ -80,6 +81,7 @@ Func Main()
 				Run($pLabelfinder)
 				Main()
 			Case $iExit
+				clearFile()
 				Exit
 		EndSwitch
 	WEnd
@@ -225,4 +227,10 @@ Func readLabelFile_Into_2DArray($pFile)
 
 
 		Return $ValuesCurrentFile
+EndFunc
+
+Func clearFile()
+	Local $oFile  = FileOpen($LabelDatei,2)
+	FileWrite($oFile,"")
+	FileClose($oFile)
 EndFunc

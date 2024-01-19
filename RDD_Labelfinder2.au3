@@ -60,6 +60,7 @@ Func ReadIn()
 				Local $SectionContent = _ReadInSection($SectionNames[$i])
 				_ArrayAdd($Werte,$SectionContent)
 				_FileWriteFromArray($LabelDatei,$Werte) ; schreibt das Array in das neue Dokument Labels.txt
+
 			EndIf
 		next
 		ConsoleWrite("Größe des Arrays(Labels): " & UBound($Labels)&","& UBound($Labels,2) & @CRLF)
@@ -74,8 +75,8 @@ Func ReadIn()
 		;_FileReadToArray($LabelDatei,$Labels) würde unnötiger weise Doppelt dafür sorgen das die werte in einem Array sind
 		; mit String Split in ein neues 2D Array einlesen ähnlich der Funktion _ReadInSection eigene Methode dafür unten
 		$Labels = readLabelFile_Into_2DArray($LabelDatei) ; methode zum einlesen der Datei in das 2D Array
-		_ArrayDisplay($Labels,"Labels am Ende der ReadIn Funktion ")
-
+		;_ArrayDisplay($Labels,"Labels am Ende der ReadIn Funktion ")
+		openGUI()
 
 	EndIf
 
