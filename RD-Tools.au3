@@ -4,7 +4,7 @@
  Author:         myName
 
  Script Function:
-	Template AutoIt script.
+	This Tool make it easier to Use the RD-Module
 
 #ce ----------------------------------------------------------------------------
 
@@ -52,8 +52,11 @@ Global $iLabelfinder = TrayCreateItem("Labelfinder")
 
 Const $iExit = TrayCreateItem("Beenden")
 
+Global $LabelDatei = @ScriptDir& "\Labels.txt"
+Global $Labels[0][4]
+
 ;ReadIn()
-Main()
+ReadIn()
 
 Func Main()
 
@@ -84,35 +87,43 @@ EndFunc
 
 
 Func ReadIn()
+	Local $FileSize = FileGetSize($LabelDatei)
 	ConsoleWrite("Start: " & @HOUR & ":"& @MIN&":"&@SEC & @CRLF)
-
-	MsgBox(0,"",$file)
-	MsgBox(0,"",$TestFile)
-	_ClipBoard_SetData($IniFile)
 	Global $SectionNames = IniReadSectionNames(@ScriptDir & "\" & $INIFile)
 	;_ArrayDisplay($SectionNames)
+	ConsoleWrite("Dateigröße: "& $FileSize & @CRLF)
 
-	For $i = 1 to UBound($SectionNames)-1
-		Local $SectionName = $SectionNames[$i]
-		ConsoleWrite($SectionName&@CRLF)
+	if $FileSize == 0 then
+		; hier muss das Tool die Labels in die neue Textdatei einlesen
+		ConsoleWrite("Die Labeldatei ist leer" & @CRLF)
+		For $i = 1 to Ubound($SectionNames)-1
+			Local $SectionName = $SectionNames[$i]
+			if $SectionName <> "System" and $SectionName <> "General" then
+				Local $SectionContent = _ReadInSection($SectionNames[$i])
+				_ArrayAdd($Werte,$SectionContent)
+				_FileWriteFromArray($LabelDatei,$Werte) ; schreibt das Array in das neue Dokument Labels.txt
+			EndIf
+		next
+		ConsoleWrite("Größe des Arrays(Labels): " & UBound($Labels)&","& UBound($Labels,2) & @CRLF)
+		ConsoleWrite("Größe des Arrays(Werte): " & UBound($Werte) & ","&Ubound($Werte,2)& @CRLF)
 
-		if $SectionName == "System" then
-
-			$MaxSearchResults = IniRead($INIFile,$SectionName,"MaxSearchResults",0)
-
-		elseIf $SectionName == "General" Then
-			; hier passiert nichts
-
-		else
-			Local $SectionContent = _ReadInSection($SectionNames[$i])
-			_ArrayAdd($Werte,$SectionContent)
-		EndIf
+		; mit der Funktion readLabelFile_Into_2DArray in das 2D-Array einlesen
+		$Labels = readLabelFile_Into_2DArray($LabelDatei)
+	else
+		; hier muss das Tool nur auf die bereits eingelesenen Werte in der neuen Textdatei zugreifen
+		ConsoleWrite("Die Labeldatei ist nicht leer"& @CRLF)
+		MsgBox(0,"","Die Labeldatei ist nicht leer")
+		$Labels = readLabelFile_Into_2DArray($LabelDatei) ; methode zum einlesen der Datei in das 2D Array
+		;_ArrayDisplay($Labels,"Labels am Ende der ReadIn Funktion ")
 
 
-	next
+	EndIf
+
+	;_ArrayDisplay($Werte)
+	; hier ReadtmpFile
 
 	ConsoleWrite("Ende: " & @HOUR & ":" &@MIN&":"&@SEC&@CRLF)
-	_ArrayDisplay($Werte)
+	;_ArrayDisplay($Labels)
 	Main()
 EndFunc
 
@@ -168,5 +179,50 @@ Func _ReadInSection($pSectionName)
 
 	;_ArrayDisplay($ValuesCurrentFile)
 	Return $ValuesCurrentFile
+EndFunc
 
+Func readLabelFile_Into_2DArray($pFile)
+	; Prüft ob das File Existiert
+	if Not FileExists($pFile) then
+		MsgBox(16,@ScriptName,"Datei " & $pFile & " wurde nicht gefunden")
+	EndIf
+
+	Local $FileContent = FileReadToArray($pFile)
+	;_ArrayDisplay($FileContent,"Filecontent:")
+
+	Local $FileContent_Rows = UBound($FileContent)-1
+	ConsoleWrite("$FileContent_Rows=" & $FileContent_Rows & @CRLF)
+	Local $ValuesCurrentFile[$FileContent_Rows][4]
+
+	Local $n
+	Local $CurrentPos = 0
+
+	For $n = 0 to $FileContent_Rows-1
+		Local $FileContentLine = $FileContent[$n]
+
+		If StringLeft($FileContentLine,1) <> " " Then
+			Local $tmpArray = StringSplit($FileContentLine,"|")
+			ConsoleWrite("CurrentPos "& $CurrentPos & @CRLF)
+			;_ArrayDisplay($tmpArray,"Das richtige Array")
+
+			Local $label = $tmpArray[1]
+			Local $text = $tmpArray[2]
+			Local $comment = ""
+			Local $prefix = $tmpArray[4]
+
+			;_ArrayDisplay($ValuesCurrentFile,"valuesCurrentFile")
+
+			$ValuesCurrentFile[$CurrentPos][0] = $label
+			$ValuesCurrentFile[$CurrentPos][1] = $text
+			$ValuesCurrentFile[$CurrentPos][2] = $comment
+			$ValuesCurrentFile[$CurrentPos][3] = $prefix
+
+			$CurrentPos += 1
+
+		EndIf
+
+	next
+
+
+		Return $ValuesCurrentFile
 EndFunc
