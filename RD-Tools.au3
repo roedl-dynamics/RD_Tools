@@ -82,6 +82,7 @@ Func Main()
 				Main()
 			Case $iExit
 				clearFile()
+				IniWrite($IniFile,"Launcher","openedByLauncher","flase")
 				Exit
 		EndSwitch
 	WEnd
@@ -100,10 +101,11 @@ Func ReadIn()
 		ConsoleWrite("Die Labeldatei ist leer" & @CRLF)
 		For $i = 1 to Ubound($SectionNames)-1
 			Local $SectionName = $SectionNames[$i]
-			if $SectionName <> "System" and $SectionName <> "General" then
+			if $SectionName <> "System" and $SectionName <> "General" and $SectionName <> "Launcher" then
 				Local $SectionContent = _ReadInSection($SectionNames[$i])
 				_ArrayAdd($Werte,$SectionContent)
 				_FileWriteFromArray($LabelDatei,$Werte) ; schreibt das Array in das neue Dokument Labels.txt
+
 			EndIf
 		next
 		ConsoleWrite("Größe des Arrays(Labels): " & UBound($Labels)&","& UBound($Labels,2) & @CRLF)
@@ -123,7 +125,7 @@ Func ReadIn()
 
 	;_ArrayDisplay($Werte)
 	; hier ReadtmpFile
-
+	IniWrite($IniFile,"Launcher","openedByLauncher","True")
 	ConsoleWrite("Ende: " & @HOUR & ":" &@MIN&":"&@SEC&@CRLF)
 	;_ArrayDisplay($Labels)
 	Main()
