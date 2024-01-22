@@ -115,7 +115,7 @@ Func ReadIn()
 	else
 		; hier muss das Tool nur auf die bereits eingelesenen Werte in der neuen Textdatei zugreifen
 		ConsoleWrite("Die Labeldatei ist nicht leer"& @CRLF)
-		MsgBox(0,"","Die Labeldatei ist nicht leer")
+		;MsgBox(0,"","Die Labeldatei ist nicht leer")
 		$Labels = readLabelFile_Into_2DArray($LabelDatei) ; methode zum einlesen der Datei in das 2D Array
 		;_ArrayDisplay($Labels,"Labels am Ende der ReadIn Funktion ")
 
