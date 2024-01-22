@@ -23,7 +23,6 @@ Opt('TrayMenuMode',3)
 #include <Array.au3>
 #include <TrayConstants.au3>
 #include <File.au3>
-#include <Clipboard.au3>
 #include <GuiListView.au3>
 #include <Clipboard.au3>
 
@@ -42,7 +41,7 @@ Const $pFODevSetupTool = @ScriptDir & "\AutoD365FODevSetupTool.exe"
 Const $pCalc = "calc.exe"
 ;Global $pPasswortManager = @DesktopDir & "\PW Tool\Rodl.PW.Tool.exe" ; funktioniert nicht
 
-Global $pLabelfinder = @ScriptDir & "\RDD_Labelfinder2.exe"
+Global $pLabelfinder = @ScriptDir & "\RDD_Labelfinder.exe"
 
 Global $iDevSetup = TrayCreateItem("FODevSetUp")
 Global $iServiceManager = TrayCreateItem("ServiceManager")
@@ -152,7 +151,7 @@ Func _ReadInSection($pSectionName)
 	Local $n
 	Local $CurrentPos = 0
 
-	For $n = 0 to $FileContent_Rows
+	For $n = 0 to $FileContent_Rows-1
 
 		Local $FileContentLine = $FileContent[$n]
 
@@ -160,6 +159,8 @@ Func _ReadInSection($pSectionName)
 		If StringLeft($FileContentLine,1) <> " " Then
 			local $tmpArray = StringSplit($FileContentLine,"=")
 			;_ArrayDisplay($tmpArray)
+			ConsoleWrite("n= " & $n & @CRLF)
+			ConsoleWrite("CurrentPos= " & $CurrentPos & @CRLF)
 
 			Local $label = $tmpArray[1]
 			Local $text = $tmpArray[2]
@@ -208,6 +209,7 @@ Func readLabelFile_Into_2DArray($pFile)
 			Local $tmpArray = StringSplit($FileContentLine,"|")
 			ConsoleWrite("CurrentPos "& $CurrentPos & @CRLF)
 			;_ArrayDisplay($tmpArray,"Das richtige Array")
+
 
 			Local $label = $tmpArray[1]
 			Local $text = $tmpArray[2]

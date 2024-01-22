@@ -41,11 +41,14 @@ Global $Werte [0][4] ; bleibt umd die Daten aus dem INI File auszulesen
 ; zum Test
 Global $LabelDatei = @ScriptDir& "\Labels.txt" ; Zusätzliche Textdatei die die Werte Zwischenspeichert das das Tool im Launcher verwendbar ist
 Global $Labels[0][4] ; 2D Array welches die Labels aus der neuen Textdatei einließt und enthält
+Global $openByLauncher ;
 
 ReadIN()
 
 Func ReadIn()
 	Local $FileSize = FileGetSize($LabelDatei)
+	$openByLauncher = IniRead($INIFile,"Launcher","openedByLauncher","Konnte nicht gefunden werden")
+	ConsoleWrite("OpendedBylauncher: " & $openByLauncher & @CRLF)
 	ConsoleWrite("Start: " & @HOUR & ":"& @MIN&":"&@SEC & @CRLF)
 	Global $SectionNames = IniReadSectionNames(@ScriptDir & "\" & $INIFile)
 	;_ArrayDisplay($SectionNames)
@@ -56,54 +59,33 @@ Func ReadIn()
 		ConsoleWrite("Die Labeldatei ist leer" & @CRLF)
 		For $i = 1 to Ubound($SectionNames)-1
 			Local $SectionName = $SectionNames[$i]
-			if $SectionName <> "System" and $SectionName <> "General" then
+			if $SectionName <> "System" and $SectionName <> "General" and $SectionName <> "Launcher" then
 				Local $SectionContent = _ReadInSection($SectionNames[$i])
 				_ArrayAdd($Werte,$SectionContent)
 				_FileWriteFromArray($LabelDatei,$Werte) ; schreibt das Array in das neue Dokument Labels.txt
-
+			elseIf $SectionName == "Launcher" then
+				$openByLauncher  = IniRead($INIFile,"Launcher","openedByLauncher","")
 			EndIf
 		next
 		ConsoleWrite("Größe des Arrays(Labels): " & UBound($Labels)&","& UBound($Labels,2) & @CRLF)
 		ConsoleWrite("Größe des Arrays(Werte): " & UBound($Werte) & ","&Ubound($Werte,2)& @CRLF)
 
-		; mit der Funktion readLabelFile_Into_2DArray in das 2D-Array einlesen
+		; mit der Funktion readLabelFile_Intog_2DArray in das 2D-Array einlesen
 		$Labels = readLabelFile_Into_2DArray($LabelDatei)
 	else
 		; hier muss das Tool nur auf die bereits eingelesenen Werte in der neuen Textdatei zugreifen
 		ConsoleWrite("Die Labeldatei ist nicht leer"& @CRLF)
-		MsgBox(0,"","Die Labeldatei ist nicht leer")
+		;MsgBox(0,"","Die Labeldatei ist nicht leer")
 		;_FileReadToArray($LabelDatei,$Labels) würde unnötiger weise Doppelt dafür sorgen das die werte in einem Array sind
 		; mit String Split in ein neues 2D Array einlesen ähnlich der Funktion _ReadInSection eigene Methode dafür unten
 		$Labels = readLabelFile_Into_2DArray($LabelDatei) ; methode zum einlesen der Datei in das 2D Array
 		;_ArrayDisplay($Labels,"Labels am Ende der ReadIn Funktion ")
-		openGUI()
+		If $openByLauncher == "True" then
+			openGUI()
+		EndIf
 
 	EndIf
 
-	;_ArrayDisplay($Werte)
-	; hier ReadtmpFile
-
-
-#cs
-	For $i = 1 to UBound($SectionNames)-1
-		Local $SectionName = $SectionNames[$i]
-		ConsoleWrite($SectionName&@CRLF)
-
-		if $SectionName == "System" then
-
-			$MaxSearchResults = IniRead($INIFile,$SectionName,"MaxSearchResults",0)
-
-		elseIf $SectionName == "General" Then
-			; hier passiert nichts
-
-		else
-			Local $SectionContent = _ReadInSection($SectionNames[$i])
-			_ArrayAdd($Werte,$SectionContent)
-		EndIf
-
-
-	next
-#ce
 	ConsoleWrite("Ende: " & @HOUR & ":" &@MIN&":"&@SEC&@CRLF)
 	;_ArrayDisplay($Werte)
 	Main()
@@ -252,8 +234,6 @@ Func readLabelFile_Into_2DArray($pFile)
 
 	next
 
-		;$ValuesCurrentFile = _ArrayExtract($ValuesCurrentFile,0,$CurrentPos-1)
-		;_ArrayDisplay($ValuesCurrentFile,"letztes in der Funktion ValuesCurrentfile")
 
 		Return $ValuesCurrentFile
 EndFunc
@@ -265,7 +245,8 @@ Func Main()
 
     While 1
         Switch TrayGetMsg()
-            Case  $iExit
+			Case  $iExit
+				;clearFile()
 				Exit
 			Case $iSearch
 				openGUI()
@@ -304,15 +285,23 @@ Func openGUI()
 		Local $nMsg = GUIGetMsg()
 		Switch $nMsg
 			Case $GUI_EVENT_CLOSE
-				GUIDelete($Form1)
-				Main()
+				if $openByLauncher == "True" then
+					Exit
+				else
+					GUIDelete($Form1)
+					Main()
+				EndIf
 			Case $SearchButton
 				GUICtrlSetData($hListView, "")
 				search()
 			Case $TakeOverButton
 				TakeOver()
-				GUIDelete($Form1)
-				Main()
+				if $openByLauncher == "True" then
+					Exit
+				else
+					GUIDelete($Form1)
+					Main()
+				EndIf
 			Case $GUI_EVENT_RESIZED
 				Local $NewSize = WinGetPos($Form1)
 				if $NewSize[2] < $minWidth OR $NewSize[3] < $minHeigt Then
@@ -382,4 +371,12 @@ Func TakeOver()
 	Else
 		_ClipBoard_SetData($Labels[$index][0])
 	EndIf
+EndFunc
+
+Func clearFile()
+	Local $oFile  = FileOpen($LabelDatei,2)
+	FileWrite($oFile,"")
+	FileClose($oFile)
+
+
 EndFunc
