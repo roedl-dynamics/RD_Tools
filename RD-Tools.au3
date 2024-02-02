@@ -50,6 +50,7 @@ Const $iExit = TrayCreateItem("Beenden")
 Global $LabelDatei = @ScriptDir& "\Labels.txt"
 Global $Labels[0][4]
 Global $openedByLauncher
+Global $Labelfail = false
 
 ;ReadIn()
 ReadIn()
@@ -73,6 +74,10 @@ Func Main()
 				Run($pPasswortManager,"",@SW_SHOWDEFAULT)
 		#ce
 			Case $iLabelfinder
+				if $Labelfail == true then
+					MsgBox(16,"Warnung","die Labeldateien konnten nicht korrekt eingelesen werden")
+					ExitLoop
+				EndIf
 				Run($pLabelfinder)
 				Main()
 			Case $iExit
@@ -88,11 +93,22 @@ Func ReadIn()
 	Local $FileSize = FileGetSize($LabelDatei)
 	ConsoleWrite("Start: " & @HOUR & ":"& @MIN&":"&@SEC & @CRLF)
 	Global $SectionNames = IniReadSectionNames(@ScriptDir & "\" & $INIFile)
-	;_ArrayDisplay($SectionNames)
+	_ArrayDisplay($SectionNames)
 	ConsoleWrite("Dateigröße: "& $FileSize & @CRLF)
+
+
+	Local $z
+	For $z = 4 to UBound($SectionNames)-1
+		Local $path = IniRead($INIFile,$SectionNames,"Labelfile","")
+		if $path == " " then
+			MsgBox(16, @ScriptName,"bitte Dateipfad für " &$SectionNames[$z]&" angeben")
+			Main()
+		EndIf
+	next
 
 	if UBound($SectionNames)-1 < 4 then
 		MsgBox(16,"Warnung","sie haben keine Labeldateien angegeben")
+		$Labelfail = true
 		Main()
 	EndIf
 
@@ -141,7 +157,9 @@ Func _ReadInSection($pSectionName)
 	EndIf
 
 	if Not FileExists($tmpFilePath) Then
-		MsgBox(16,@ScriptName, "Datei " & $tmpFilePath & " wurde nicht gefunden")
+		MsgBox(16,"Warnung", "Die Datei konnte nicht gefunden werden")
+		$Labelfail = True
+		Main()
 	endif
 
 	Local $FileContent = FileReadToArray($tmpFilePath)
