@@ -36,18 +36,14 @@ Global $MaxSearchResults
 
 Global $pNotepad = "notepad.exe"
 Global $pServiceManager = @ScriptDir & "\D365FOServiceManager.exe"
-;Const $Process2 = "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Desktop\PW Tool\Rödl PW Tool.exe"
 Const $pFODevSetupTool = @ScriptDir & "\AutoD365FODevSetupTool.exe"
 Const $pCalc = "calc.exe"
-;Global $pPasswortManager = @DesktopDir & "\PW Tool\Rodl.PW.Tool.exe" ; funktioniert nicht
 
 Global $pLabelfinder = @ScriptDir & "\RDD_Labelfinder.exe"
 
 Global $iDevSetup = TrayCreateItem("FODevSetUp")
 Global $iServiceManager = TrayCreateItem("ServiceManager")
 Global $iLabelfinder = TrayCreateItem("Labelfinder")
-;Global $iCalc = TrayCreateItem("Calculator")
-;Global $iPasswortManager = TrayCreateItem("Passwortmanager")
 
 Const $iExit = TrayCreateItem("Beenden")
 
@@ -81,7 +77,7 @@ Func Main()
 				Main()
 			Case $iExit
 				clearFile()
-				IniWrite($IniFile,"Launcher","openedByLauncher","flase")
+				IniWrite($IniFile,"Launcher","openedByLauncher","false")
 				Exit
 		EndSwitch
 	WEnd
@@ -134,6 +130,10 @@ Func _ReadInSection($pSectionName)
 
 	Local $tmpFilePath = IniRead($INIFile,$pSectionName, "Labelfile","")
 	Local $LabelPrefix = IniRead($INIFile,$pSectionName,"Labelprefix","")
+
+	if $tmpFilePath == "" then
+		MsgBox(16, @ScriptName,"bitte Dateipfad für " &$pSectionName&" angeben")
+	EndIf
 
 	if Not FileExists($tmpFilePath) Then
 		MsgBox(16,@ScriptName, "Datei " & $tmpFilePath & " wurde nicht gefunden")
