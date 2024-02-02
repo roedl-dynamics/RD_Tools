@@ -93,7 +93,7 @@ Func ReadIn()
 	Local $FileSize = FileGetSize($LabelDatei)
 	ConsoleWrite("Start: " & @HOUR & ":"& @MIN&":"&@SEC & @CRLF)
 	Global $SectionNames = IniReadSectionNames(@ScriptDir & "\" & $INIFile)
-	_ArrayDisplay($SectionNames)
+	;_ArrayDisplay($SectionNames)
 	ConsoleWrite("Dateigröße: "& $FileSize & @CRLF)
 
 
