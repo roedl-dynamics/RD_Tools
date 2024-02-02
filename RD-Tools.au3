@@ -91,6 +91,11 @@ Func ReadIn()
 	;_ArrayDisplay($SectionNames)
 	ConsoleWrite("Dateigröße: "& $FileSize & @CRLF)
 
+	if UBound($SectionNames)-1 < 4 then
+		MsgBox(16,"Warnung","sie haben keine Labeldateien angegeben")
+		Main()
+	EndIf
+
 	if $FileSize == 0 then
 		; hier muss das Tool die Labels in die neue Textdatei einlesen
 		ConsoleWrite("Die Labeldatei ist leer" & @CRLF)
