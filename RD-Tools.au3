@@ -1,3 +1,11 @@
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Icon=Launcher.ico
+#AutoIt3Wrapper_Res_Fileversion=0.0.0.1
+#AutoIt3Wrapper_Res_Fileversion_AutoIncrement=y
+#AutoIt3Wrapper_Res_CompanyName=Rödl Dynamics GmbH
+#AutoIt3Wrapper_Res_LegalCopyright=Rödl Dynamics GmbH
+#AutoIt3Wrapper_Res_Language=1031
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #cs ----------------------------------------------------------------------------
 
  AutoIt Version: 3.3.16.1
