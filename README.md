@@ -9,15 +9,16 @@ The launcher reads the labels while it start in the background so you can start 
 <br>
 <h2>How to use:</h2>
 After installation the Tool starts in the Background.<br>
+You can open it in the Systemtray: <br>
 
 ![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ImTray.PNG) <br>
 
-You can open it in the Systemtray: <br>
+Next you can select a Tool to open with the launcher or close the launcher.
 
 ![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ge%C3%B6ffnet.PNG) <br>
 
-Next you can select a Tool to open with the launcher or close the launcher.
 
+Now the Launcher will open one of these Tools
 
 
 <p float="left">
