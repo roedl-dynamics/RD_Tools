@@ -16,7 +16,9 @@ You can open it in the Systemtray: <br>
 
 ![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ge%C3%B6ffnet.PNG) <br>
 
-Now you can select a Tool to open with the launcher or close the launcher: 
+Next you can select a Tool to open with the launcher or close the launcher.
+
+
 
 <p float="left">
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/ServiceManager_geoeffnet.PNG" width="33%" />
