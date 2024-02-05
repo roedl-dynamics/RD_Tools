@@ -3,11 +3,13 @@
 
 </p>
 <h2>How to use:</h2>
-After installation the Tool starts in the Background. <br>
+After installation the Tool starts in the Background.<br>
+
+You can open it in the Systemtray: <br>
 
 ![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ImTray.PNG) <br>
 
-You can open it in the Systemtray. <br>
+
 
 
 <h2>Item-Source:</h2>
