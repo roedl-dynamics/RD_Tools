@@ -2,6 +2,8 @@
 <p>this Tool is a launcher to open the RD_Module(RD-Labelfinder,AutoD365FODevSetupTool,D365FOServiceManager).
 The launcher reads the labels while it start in the background so you can start the Labelfinder through the launcher without delay.
 </p>
+<h2>How to install:  </h2> 
+<br>
 <h2>How to use:</h2>
 After installation the Tool starts in the Background.<br>
 
