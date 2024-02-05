@@ -3,7 +3,7 @@
 
 </p>
 <h2>How to use:</h2>
-After installation the Tool starts in the Background. 
+After installation the Tool starts in the Background. <br>
 You can open it in the Systemtray.
 
 <h2>Item-Source:</h2>
