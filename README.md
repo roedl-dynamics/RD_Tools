@@ -29,8 +29,8 @@ Now you can select a Tool to open with the launcher or close the launcher:
 
 
 <figure>
-    <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG" alt="Alternativer Text für das Bild">
-    <figcaption>D365FoDevSetup</figcaption>
+    <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/Labelfinder_geoeffnet.PNG" alt="Alternativer Text für das Bild">
+    <figcaption>[Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder)</figcaption>
 </figure>
 
                                                                                          
