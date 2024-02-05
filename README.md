@@ -5,9 +5,11 @@
 <h2>How to use:</h2>
 After installation the Tool starts in the Background.<br>
 
+![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ImTray.PNG) <br>
+
 You can open it in the Systemtray: <br>
 
-![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ImTray.PNG) <br>
+![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ge%C3%B6ffnet.PNG) <br>
 
 
 
