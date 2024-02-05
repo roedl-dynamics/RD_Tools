@@ -11,6 +11,10 @@ The launcher reads the labels while it start in the background so you can start 
 
 </p>
 
+- [GitHub](https://github.com)
+- [Google](https://google.com)
+- [Stack Overflow](https://stackoverflow.com)
+
     
 
 <h2>How to install:  </h2> 
