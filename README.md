@@ -22,8 +22,8 @@ Now you can select a Tool to open with the launcher or close the launcher:
 <br>
 Service-Manager
 ![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/Labelfinder_geoeffnet.PNG) 
-<br>
-Labelfinder
+
+<br> Labelfinder
 ![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG) <br>
 
                                                                                          
