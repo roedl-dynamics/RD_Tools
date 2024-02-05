@@ -13,7 +13,9 @@ The launcher reads the labels while it start in the background so you can start 
   [D365FOServiceManager](https://github.com/roedl-dynamics/D365FOServiceManager)
 
 </p>
-<p>Hier ist ein Satz mit einem eingebetteten [Link zu Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder) in der Mitte.</p>
+<p>Hier ist ein Satz mit einem eingebetteten 
+ [Link zu Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder) 
+ in der Mitte.</p>
     
 
 <h2>How to install:  </h2> 
