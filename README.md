@@ -1,6 +1,6 @@
 <h1>RD_Tools</h1>
 
-this Tool is a launcher to open the RD_Module( [Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder) ,[AutoD365FODevSetupTool](https://github.com/roedl-dynamics/AutoD365FODevSetupTool),[D365FOServiceManager](https://github.com/roedl-dynamics/D365FOServiceManager))
+this Tool is a launcher to open the RD_Module([Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder) ,[AutoD365FODevSetupTool](https://github.com/roedl-dynamics/AutoD365FODevSetupTool),[D365FOServiceManager](https://github.com/roedl-dynamics/D365FOServiceManager))
  .
 The launcher reads the labels while it start in the background so you can start the Labelfinder through the launcher without delay.
  
