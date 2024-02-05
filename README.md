@@ -20,11 +20,8 @@ Now you can select a Tool to open with the launcher or close the launcher:
 
 <p float="left">
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/ServiceManager_geoeffnet.PNG" width="33%" />
- <figcaption> ServiceManager </figcaption>
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/Labelfinder_geoeffnet.PNG" width="33%" />
- <figcaption> Labelfinder </figcaption>
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG" width="33%" />
- <figcaption>D365FODevSetup</figcaption>
 </p>
 
 
