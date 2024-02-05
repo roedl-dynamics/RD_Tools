@@ -11,9 +11,7 @@ The launcher reads the labels while it start in the background so you can start 
 
 </p>
 
-- [GitHub](https://github.com)
-- [Google](https://google.com)
-- [Stack Overflow](https://stackoverflow.com)
+Hier ist ein Satz mit einem [eingebetteten Link](https://www.google.com) dazwischen.
 
     
 
