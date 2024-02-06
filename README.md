@@ -27,7 +27,6 @@ Now the Launcher will open one of these Tools
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG" width="33%" />
 </p>
 
-![ServiceManager](https://github.com/roedl-dynamics/RD_Tools/blob/main/ServiceManager_geoeffnet.PNG)
 
 
                                                                                          
