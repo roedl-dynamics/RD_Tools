@@ -18,7 +18,7 @@ Next you can select a Tool to open with the launcher or close the launcher.
 ![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ge%C3%B6ffnet.PNG) <br>
 
 
-Now the Launcher will open one of these Tools
+Now the Launcher will open one of these Tools:
 
 
 <p float="left">
