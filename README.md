@@ -27,7 +27,7 @@ Now the Launcher will open one of these Tools:
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG" width="33%" />
 </p>
 
-[Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder) 
+[Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder) <div align="center" [AutoD365FODevSetupTool](https://github.com/roedl-dynamics/AutoD365FODevSetupTool) </div>
 
                                                                                          
 
