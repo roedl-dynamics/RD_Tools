@@ -28,8 +28,7 @@ Now the Launcher will open one of these Tools
 </p>
 
 ![ServiceManager](https://github.com/roedl-dynamics/RD_Tools/blob/main/ServiceManager_geoeffnet.PNG)
-![Labelfinder](https://github.com/roedl-dynamics/RD_Tools/blob/main/Labelfinder_geoeffnet.PNG)
-![D365FODevSetup](https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG)
+
 
                                                                                          
 
