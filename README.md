@@ -22,9 +22,9 @@ Now the Launcher will open one of these Tools
 
 
 <p float="left">
- <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/ServiceManager_geoeffnet.PNG" width="40%" />
- <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/Labelfinder_geoeffnet.PNG" width="33%" />
- <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG" width="40%" />
+ <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/ServiceManager_geoeffnet.PNG" width="33%" />
+ <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/Labelfinder_geoeffnet.PNG" width="25%" />
+ <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG" width="33%" />
 </p>
 
 
