@@ -1,3 +1,4 @@
+#RequireAdmin
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=Launcher.ico
 #AutoIt3Wrapper_Res_Fileversion=0.0.0.1
