@@ -1,10 +1,12 @@
 #RequireAdmin
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=Launcher.ico
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.3
-#AutoIt3Wrapper_Res_Fileversion_AutoIncrement=y
+#AutoIt3Wrapper_Res_Description=Rödl Dynamics RD_Tools
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.5
+#AutoIt3Wrapper_Res_ProductName=RD_Tools
 #AutoIt3Wrapper_Res_CompanyName=Rödl Dynamics GmbH
 #AutoIt3Wrapper_Res_LegalCopyright=Rödl Dynamics GmbH
+#AutoIt3Wrapper_Res_LegalTradeMarks=Rödl Dynamics GmbH
 #AutoIt3Wrapper_Res_Language=1031
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #cs ----------------------------------------------------------------------------
@@ -43,10 +45,10 @@ Local $TestFile = @WindowsDir
 Global $Werte [0][4]
 Global $MaxSearchResults
 
-Global $pNotepad = "notepad.exe"
+
 Global $pServiceManager = @ScriptDir & "\D365FOServiceManager.exe"
 Const $pFODevSetupTool = @ScriptDir & "\AutoD365FODevSetupTool.exe"
-Const $pCalc = "calc.exe"
+
 
 Global $pLabelfinder = @ScriptDir & "\RDD_Labelfinder.exe"
 
@@ -76,12 +78,6 @@ Func Main()
 			Case $iServiceManager
 				Run($pServiceManager,"",@SW_SHOWDEFAULT)
 				Main()
-		#cs	Case $iCalc
-				Run($pCalc,"",@SW_SHOWDEFAULT)
-				Main()
-			Case $iPasswortManager
-				Run($pPasswortManager,"",@SW_SHOWDEFAULT)
-		#ce
 			Case $iLabelfinder
 				if $Labelfail == true then
 					MsgBox(16,"Warnung","die Labeldateien konnten nicht korrekt eingelesen werden")
@@ -102,7 +98,6 @@ Func ReadIn()
 	Local $FileSize = FileGetSize($LabelDatei)
 	ConsoleWrite("Start: " & @HOUR & ":"& @MIN&":"&@SEC & @CRLF)
 	Global $SectionNames = IniReadSectionNames(@ScriptDir & "\" & $INIFile)
-	;_ArrayDisplay($SectionNames)
 	ConsoleWrite("Dateigröße: "& $FileSize & @CRLF)
 
 
@@ -141,18 +136,14 @@ Func ReadIn()
 	else
 		; hier muss das Tool nur auf die bereits eingelesenen Werte in der neuen Textdatei zugreifen
 		ConsoleWrite("Die Labeldatei ist nicht leer"& @CRLF)
-		;MsgBox(0,"","Die Labeldatei ist nicht leer")
 		$Labels = readLabelFile_Into_2DArray($LabelDatei) ; methode zum einlesen der Datei in das 2D Array
-		;_ArrayDisplay($Labels,"Labels am Ende der ReadIn Funktion ")
+
 
 
 	EndIf
 
-	;_ArrayDisplay($Werte)
-	; hier ReadtmpFile
 	IniWrite($IniFile,"Launcher","openedByLauncher","True")
 	ConsoleWrite("Ende: " & @HOUR & ":" &@MIN&":"&@SEC&@CRLF)
-	;_ArrayDisplay($Labels)
 	Main()
 EndFunc
 
@@ -173,12 +164,9 @@ Func _ReadInSection($pSectionName)
 
 	Local $FileContent = FileReadToArray($tmpFilePath)
 
-	;_ArrayDisplay($FileContent,"$FileContent");
-
 	Local $FileContent_Rows = Ubound($FileContent)-1
 	ConsoleWrite("$FileContent_Rows="  & $FileContent_Rows & @CRLF)
 	Local $ValuesCurrentFile[$FileContent_Rows][4]
-	;_ArrayDisplay($ValuesCurrentFile)
 
 	Local $n
 	Local $CurrentPos = 0
@@ -190,7 +178,6 @@ Func _ReadInSection($pSectionName)
 		; String left um herauszufinden womit die Zeile beginnt
 		If StringLeft($FileContentLine,1) <> " " Then
 			local $tmpArray = StringSplit($FileContentLine,"=")
-			;_ArrayDisplay($tmpArray)
 			ConsoleWrite("n= " & $n & @CRLF)
 			ConsoleWrite("CurrentPos= " & $CurrentPos & @CRLF)
 
@@ -214,7 +201,6 @@ Func _ReadInSection($pSectionName)
 
 	 $ValuesCurrentFile = _ArrayExtract($ValuesCurrentFile, 0, $CurrentPos-1)
 
-	;_ArrayDisplay($ValuesCurrentFile)
 	Return $ValuesCurrentFile
 EndFunc
 
@@ -225,7 +211,6 @@ Func readLabelFile_Into_2DArray($pFile)
 	EndIf
 
 	Local $FileContent = FileReadToArray($pFile)
-	;_ArrayDisplay($FileContent,"Filecontent:")
 
 	Local $FileContent_Rows = UBound($FileContent)-1
 	ConsoleWrite("$FileContent_Rows=" & $FileContent_Rows & @CRLF)
@@ -240,15 +225,12 @@ Func readLabelFile_Into_2DArray($pFile)
 		If StringLeft($FileContentLine,1) <> " " Then
 			Local $tmpArray = StringSplit($FileContentLine,"|")
 			ConsoleWrite("CurrentPos "& $CurrentPos & @CRLF)
-			;_ArrayDisplay($tmpArray,"Das richtige Array")
 
 
 			Local $label = $tmpArray[1]
 			Local $text = $tmpArray[2]
 			Local $comment = ""
 			Local $prefix = $tmpArray[4]
-
-			;_ArrayDisplay($ValuesCurrentFile,"valuesCurrentFile")
 
 			$ValuesCurrentFile[$CurrentPos][0] = $label
 			$ValuesCurrentFile[$CurrentPos][1] = $text
