@@ -6,6 +6,7 @@ The launcher reads the labels while it start in the background so you can start 
  
 
 <h2>How to install:  </h2> 
+Download the installer from the latest release. And follow the Setup Wizard.
 <br>
 <h2>How to use:</h2>
 After installation the Tool starts in the Background.<br>
