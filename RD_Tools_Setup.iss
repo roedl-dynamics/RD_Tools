@@ -71,13 +71,14 @@ Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir
 ;Name: "{userstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir: {app}  
 
 [Run]
- ;Filename: "schtasks.exe"; Parameters: "/Create /F /SC ONLOGON /TN ""RD_Tools"" /TR ""{app}\RD-Tools.exe"" "; Flags: runhidden;
- ;Filename: "schtasks.exe"; Parameters: "/Create /F /SC ONSTART /TN ""RD_Tools"" /TR ""{app}\RD_Tools.exe"" "; Flags: runhidden;
-  ;Filename: "schtasks.exe"; Parameters: "/Create /F /SC ONSTART /TN ""RD_Tools"" /TR ""C:\RD_Tools\RDTools.exe"" "; Flags: runhidden;
-  ;startet das Tool aber ist nicht im SystemTray sichtbar
-  ;Filename: "schtasks.exe"; \
-  Parameters: "/create /tn ""RD_Tools starten"" /tr ""{app}\RDTools.exe"" /sc ONSTART /ru SYSTEM /rl HIGHEST /f"; \
-  Flags: runhidden
-  Filename: "schtasks.exe"; \
+Filename: "schtasks.exe"; \
 Parameters: "/create /tn ""RD_Tools starten"" /tr ""{app}\RDTools.exe"" /sc ONLOGON /rl HIGHEST /f"; \
 Flags: runhidden
+
+
+
+
+
+
+
+
