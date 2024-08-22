@@ -75,7 +75,7 @@ Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir
 [Run]
 ;Ursprünglicher Code 
 Filename: "schtasks.exe"; \
-Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe\"""" /sc ONLOGON /rl HIGHEST /f"; \
+Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RD-Tools.exe\"""" /sc ONLOGON /rl HIGHEST /f"; \
 Flags: runhidden
 
 
