@@ -2,7 +2,8 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=Launcher.ico
 #AutoIt3Wrapper_Res_Description=Rödl Dynamics RD_Tools
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.5
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.6
+#AutoIt3Wrapper_Res_Fileversion_AutoIncrement=y
 #AutoIt3Wrapper_Res_ProductName=RD_Tools
 #AutoIt3Wrapper_Res_CompanyName=Rödl Dynamics GmbH
 #AutoIt3Wrapper_Res_LegalCopyright=Rödl Dynamics GmbH
