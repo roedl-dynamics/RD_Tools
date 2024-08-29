@@ -51,6 +51,7 @@ Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\R
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\RDD_Labelfinder.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Search.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Launcher.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\CreateShedulerTask.ps1"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
@@ -74,14 +75,40 @@ Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir
 
 [Run]
 ;Ursprünglicher Code 
-Filename: "schtasks.exe"; \
+;Filename: "schtasks.exe"; \
 Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RD-Tools.exe\"""" /sc ONLOGON /rl HIGHEST /f"; \
 Flags: runhidden
 
+;Filename: "schtasks.exe"; \
+Parameters: "/create /tn ""RD_Tools starten"" /tr ""cmd.exe /c \"start /d \"\"{app}\"\" RDTools.exe\""" /sc ONLOGON /rl HIGHEST /f"; \
+Flags: runhidden
+
+;Filename: "schtasks.exe"; \
+Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe\"""" /v1 /sc ONLOGON /rl HIGHEST /f"; \
+Flags: runhidden
+
+;Filename: "schtasks.exe"; \
+Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe"""" /sc ONLOGON /rl HIGHEST /f /rp ""{app}"""; \
+Flags: runminimized;
+
+;Filename: "{cmd}"; \
+Parameters: "/K schtasks /F /Create /SC HOURLY /TN ""MeineAufgabe"" /TR ""'{app}\RDTools.exe'" /RP ""\\{app}"""; \
+Flags: runhidden
+
+;Filename: "schtasks.exe"; \
+Parameters: "/Create /TN ""RD_Tools starten"" /TR """"{app}\RDTools.exe"""" /SC ONLOGON /RL HIGHEST /F /RP """" /StartIn """"{app}"""""; \
+Flags: runhidden
+
+;Filename: "schtasks.exe"; \
+Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe\"""" /sc ONLOGON /rl HIGHEST /f /st ""{app}"""; \
+Flags: runhidden
+
+;Filename: "schtasks.exe"; \
+Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe\"""" /sc ONLOGON /rl HIGHEST /f "; \
+Flags: runhidden
 
 
-
-
+Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"""; Flags: runhidden
 
 
 
