@@ -1,12 +1,18 @@
-# Definiere den Pfad zur RD-Tools.exe
-#$appPath = "C:\Pfad\zu\deinem\RD-Tools.exe"  # Ersetze dies durch den tatsächlichen Pfad
-$appPath = "C:\Program Files (x86)\RDTools\RDTools.exe" #Muss dynamisch an den Pfad des Installationsordners angepasst werden
+Param(
+    [string] $installationFolder
+)
+#$appPath = "C:\Program Files (x86)\RDTools\RDTools.exe" #Muss dynamisch an den Pfad des Installationsordners angepasst werden
+#$appPath = $installationFolder+"\RDTools.exe"#
+#$appPath = "$installationFolder\RD-Tools.exe"
+#$appPath = "$installationFolder\RD-Tools.exe"
+#$appPath = "C:\Ordner\RD-Tools\RD-Tools.exe"
+$appPath = Join-Path $installationFolder "RD-Tools.exe"
 $appDirectory = Split-Path $appPath -Parent #extrahiert den Pfad
+Write-Output "aktueller Pfad: " + $appDirectory
 # Erstelle die geplante Aufgabe
 $taskName = "RD_Tools starten (erstellt durch Powershell)"
-$action = New-ScheduledTaskAction -Execute $appPath  -WorkingDirectory $appDirectory
+$action = New-ScheduledTaskAction -Execute $appPath  -WorkingDirectory $installationFolder
 $trigger = New-ScheduledTaskTrigger -AtLogOn
-#$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
 $principal = New-ScheduledTaskPrincipal -UserId "$env:UserName" -LogonType Interactive -RunLevel Highest
 
 # Aufgabe erstellen

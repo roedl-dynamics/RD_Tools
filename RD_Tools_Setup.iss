@@ -3,11 +3,11 @@
 
 #define ApplicationName 'RD Tools'
 #define ApplicationVersion GetVersionNumbersString('C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\RD-Tools.exe')
-#define MyAppName "RDTools"
-#define MyAppVersion GetFileVersion("..\RD_Tools\RDTools.exe")
+#define MyAppName "RD-Tools"
+#define MyAppVersion GetFileVersion("..\RD_Tools\RD-Tools.exe")
 #define MyAppPublisher "Rödl Dynamics GmbH"
 #define MyAppURL "https://github.com/roedl-dynamics/RD_Tools"
-#define MyAppExeName "RDTools.exe"
+#define MyAppExeName "RD-Tools.exe"
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
@@ -43,7 +43,7 @@ Name: "german"; MessagesFile: "compiler:Languages\German.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-;Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\AutoD365FODevSetupTool.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\AutoLabelSearch.au3.ini"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\D365FOServiceManager.exe"; DestDir: "{app}"; Flags: ignoreversion
@@ -61,7 +61,7 @@ Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\DefaultIcon"; ValueType: s
 Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
 Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".myp"; ValueData: ""
 ;aus dem Tutorial
-Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "RD_Tools"; ValueData: """{app}\RD_Tools.exe"""; Flags: uninsdeletevalue
+Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "RD_Tools"; ValueData: """{app}\RD-Tools.exe"""; Flags: uninsdeletevalue
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
@@ -75,40 +75,17 @@ Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir
 
 [Run]
 ;Ursprünglicher Code 
+
 ;Filename: "schtasks.exe"; \
 Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RD-Tools.exe\"""" /sc ONLOGON /rl HIGHEST /f"; \
 Flags: runhidden
 
-;Filename: "schtasks.exe"; \
-Parameters: "/create /tn ""RD_Tools starten"" /tr ""cmd.exe /c \"start /d \"\"{app}\"\" RDTools.exe\""" /sc ONLOGON /rl HIGHEST /f"; \
-Flags: runhidden
+;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"""; Flags: runhidden
+;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""{app}"""; Flags:runhidden
+;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder """"{app}"""""; Flags: runhidden
+;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""\""{app}\"""""; Flags: runhidden
+Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""{app}"""; Flags: runhidden
 
-;Filename: "schtasks.exe"; \
-Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe\"""" /v1 /sc ONLOGON /rl HIGHEST /f"; \
-Flags: runhidden
-
-;Filename: "schtasks.exe"; \
-Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe"""" /sc ONLOGON /rl HIGHEST /f /rp ""{app}"""; \
-Flags: runminimized;
-
-;Filename: "{cmd}"; \
-Parameters: "/K schtasks /F /Create /SC HOURLY /TN ""MeineAufgabe"" /TR ""'{app}\RDTools.exe'" /RP ""\\{app}"""; \
-Flags: runhidden
-
-;Filename: "schtasks.exe"; \
-Parameters: "/Create /TN ""RD_Tools starten"" /TR """"{app}\RDTools.exe"""" /SC ONLOGON /RL HIGHEST /F /RP """" /StartIn """"{app}"""""; \
-Flags: runhidden
-
-;Filename: "schtasks.exe"; \
-Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe\"""" /sc ONLOGON /rl HIGHEST /f /st ""{app}"""; \
-Flags: runhidden
-
-;Filename: "schtasks.exe"; \
-Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RDTools.exe\"""" /sc ONLOGON /rl HIGHEST /f "; \
-Flags: runhidden
-
-
-Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"""; Flags: runhidden
 
 
 
