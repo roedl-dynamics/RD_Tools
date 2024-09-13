@@ -79,13 +79,8 @@ Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir
 ;Filename: "schtasks.exe"; \
 Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RD-Tools.exe\"""" /sc ONLOGON /rl HIGHEST /f"; \
 Flags: runhidden
-
-;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"""; Flags: runhidden
-;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""{app}"""; Flags:runhidden
-;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder """"{app}"""""; Flags: runhidden
-;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""\""{app}\"""""; Flags: runhidden
 Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""{app}"""; Flags: runhidden
-
+;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""{app}\"""; Flags: runhidden
 
 
 
