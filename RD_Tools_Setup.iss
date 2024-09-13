@@ -69,18 +69,11 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 ; einmal mit {app} statt den Hardgecodetem Pfad probieren
 ;Name: "{commonstartup}\RD-Tools.exe"; Filename: "C:\Program Files (x86)\RD_Tools\RD-Tools.exe"; WorkingDir: "{app}"
 ;erstellt einen Eintrag im Autostart Ordner 
-Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir: "{app}"      
-;Name: "{userstartup}\{#MyAppName}"; Filename: "{app}\RD-Tools.exe"; WorkingDir: {app}
-;Name: "{userstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir: {app}  
+Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir: "{app}"        
 
 [Run]
-;Ursprünglicher Code 
-
-;Filename: "schtasks.exe"; \
-Parameters: "/create /tn ""RD_Tools starten"" /tr ""\""{app}\RD-Tools.exe\"""" /sc ONLOGON /rl HIGHEST /f"; \
-Flags: runhidden
 Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""{app}"""; Flags: runhidden
-;Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""{app}\"""; Flags: runhidden
+
 
 
 
