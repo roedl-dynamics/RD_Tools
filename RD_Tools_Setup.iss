@@ -62,7 +62,7 @@ Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\shell\open\command"; Value
 Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".myp"; ValueData: ""
 
 ;aus dem Tutorial (evtl entfernen erstellt einen Eintrag )
-Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "RD_Tools"; ValueData: """{app}\RD-Tools.exe"""; Flags: uninsdeletevalue    ;
+;Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "RD_Tools"; ValueData: """{app}\RD-Tools.exe"""; Flags: uninsdeletevalue    ;
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
@@ -71,7 +71,7 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 ;Name: "{commonstartup}\RD-Tools.exe"; Filename: "C:\Program Files (x86)\RD_Tools\RD-Tools.exe"; WorkingDir: "{app}"
 
 ;erstellt einen Eintrag im Autostart Ordner  (raus nehmen Tool wird durch das Powershell Skript hinzugefügt)
-Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir: "{app}"        
+;Name: "{commonstartup}\RD-Tools.exe"; Filename: "{app}\RD-Tools.exe"; WorkingDir: "{app}"        
 
 [Run]
 Filename: "powershell.exe"; Parameters: "-ExecutionPolicy Bypass -File ""{app}\CreateShedulerTask.ps1"" -installationFolder ""{app}"""; Flags: runhidden
