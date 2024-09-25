@@ -53,7 +53,7 @@ func openGUI()
 				Exit
 			Case $SafeButton
 				Local $userInput = GUICtrlRead($InputPasswordField)
-				WritePasswordInFile($userInput)
+				WritePasswordInFile2($userInput)
 				;GUIDelete()
 				Exit
 			Case $CancelButton
@@ -64,19 +64,28 @@ func openGUI()
 
 EndFunc
 
-func WritePasswordInFile($pPassword)
+Func WritePasswordInFile($pPassword)
+    ; Lese den gesamten Inhalt der Datei ein
+    Local $file = FileOpen($batPath, 0) ;Lesemodus
+    If $file = -1 Then
+        MsgBox(0, "Fehler", "Die Datei konnte nicht zum Lesen geöffnet werden.")
+        Return
+    EndIf
 
- ;Local $newContent = StringReplace($passwordRow[22] ,$passwordRow[22],$pPassword)
- ;$passwordRow[22] = $pPassword
- ;_ArrayDisplay($passwordRow)
+    Local $sFileContent = FileRead($file); ließt den Inhalt der Datei ein
+    FileClose($file) ; Datei nach dem Lesen sofort schließen
 
- Local $newContent = StringReplace($sFileContent,"$Password",$pPassword)
- ;entfernt den alten Inhalt
- Local $file = FileOpen ($batPath, 2 )
- FileClose($file)
- ;schreibt den neuen Wert in die Datei
- Local $fileOpen = FileOpen($batPath,2)
- FileWrite($fileOpen,$newContent)
- FileClose($fileOpen)
+    Local $newContent = StringReplace($sFileContent, "$Password", $pPassword)
 
+    $file = FileOpen($batPath, 2) ;(überschreibt den alten Inhalt)
+    If $file = -1 Then ;-1 = Fehlermeldung
+        MsgBox(0, "Fehler", "Die Datei konnte nicht zum Schreiben geöffnet werden.")
+        Return
+    EndIf
+
+    FileWrite($file, $newContent)
+
+    FileClose($file)
+
+    MsgBox(0, "Erfolg", "Das Standardpasswort wurde erfolgreich geändert.")
 EndFunc
