@@ -30,8 +30,10 @@ Global $password = $passwordRow[22]
 
 if $password == "$Password" then
 	openGUI()
+	Run(@ScriptDir & "\DB Sync.bat")
 Else
-	ConsoleWrite("Der Platzhalter ist bereits geändert" & @CRLF)
+	ConsoleWrite("Das PlatzhalterPasswort ist bereits geändert" & @CRLF)
+	Run(@ScriptDir & "\DB Sync.bat")
 EndIf
 
 
@@ -53,9 +55,8 @@ func openGUI()
 				Exit
 			Case $SafeButton
 				Local $userInput = GUICtrlRead($InputPasswordField)
-				WritePasswordInFile2($userInput)
-				;GUIDelete()
-				Exit
+				WritePasswordInFile($userInput)
+				ExitLoop
 			Case $CancelButton
 				Exit
 		EndSwitch
