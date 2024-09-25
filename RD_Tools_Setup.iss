@@ -43,15 +43,15 @@ Name: "german"; MessagesFile: "compiler:Languages\German.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\AutoD365FODevSetupTool.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\AutoLabelSearch.au3.ini"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\D365FOServiceManager.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Labels.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\RDD_Labelfinder.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Search.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Launcher.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\CreateShedulerTask.ps1"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder     
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\AutoD365FODevSetupTool.exe"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\AutoLabelSearch.au3.ini"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\D365FOServiceManager.exe"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Labels.txt"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\RDD_Labelfinder.exe"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Search.ico"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Launcher.ico"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\CreateShedulerTask.ps1"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
