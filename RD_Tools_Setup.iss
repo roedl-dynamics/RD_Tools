@@ -52,6 +52,10 @@ Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\R
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Search.ico"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Launcher.ico"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
 Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\CreateShedulerTask.ps1"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\Refresh.ico"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\DB Sync.bat"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
+Source: "C:\Users\LucaBorgmann\OneDrive - Roedl Dynamics GmbH\Documents\GitHub\RD_Tools\DBSync.exe"; DestDir: "{app}"; Flags: ignoreversion; CopyMode: alwaysskipifsameorolder
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]

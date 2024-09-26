@@ -1,3 +1,15 @@
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Icon=DBSync.ico
+#AutoIt3Wrapper_Res_Description=Rödl Dynamics DB Sync
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.6
+#AutoIt3Wrapper_Res_Fileversion_AutoIncrement=y
+#AutoIt3Wrapper_Res_ProductName=Rödl Dynamcs DB Sync
+#AutoIt3Wrapper_Res_ProductVersion=1.0
+#AutoIt3Wrapper_Res_CompanyName=Rödl Dynamics
+#AutoIt3Wrapper_Res_LegalCopyright=Rödl Dynamcis
+#AutoIt3Wrapper_Res_LegalTradeMarks=Rödl Dynamcs
+#AutoIt3Wrapper_Res_Language=1031
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #cs ----------------------------------------------------------------------------
 
  AutoIt Version: 3.3.16.1
@@ -6,9 +18,12 @@
  Script Function:
 	This Script ask you for your password if the password in the
 
+exe- Icon Source: https://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/sign-sync-icon.html
+
 #ce ----------------------------------------------------------------------------
 
 ; Script Start - Add your code below here
+#RequireAdmin
 Opt("MustDeclareVars", 1)
 
 #include <File.au3>
@@ -19,6 +34,8 @@ Opt("MustDeclareVars", 1)
 #include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
+#include <TrayConstants.au3>
+
 
 Local $batPath = @ScriptDir & "\DB Sync.bat"
 
@@ -30,11 +47,12 @@ Global $password = $passwordRow[22]
 
 if $password == "$Password" then
 	openGUI()
-	Run(@ScriptDir & "\DB Sync.bat")
+	;Run(@ScriptDir & "\DB Sync.bat")
 Else
-	ConsoleWrite("Das PlatzhalterPasswort ist bereits geändert" & @CRLF)
-	Run(@ScriptDir & "\DB Sync.bat")
+	ConsoleWrite("Das Platzhalter ist bereits geändert" & @CRLF)
+	;Run(@ScriptDir & "\DB Sync.bat")
 EndIf
+Run(@ScriptDir & "\DB Sync.bat")
 
 
 func openGUI()
@@ -55,7 +73,7 @@ func openGUI()
 				Exit
 			Case $SafeButton
 				Local $userInput = GUICtrlRead($InputPasswordField)
-				WritePasswordInFile($userInput)
+				_WritePasswordInFile($userInput)
 				ExitLoop
 			Case $CancelButton
 				Exit
@@ -65,11 +83,11 @@ func openGUI()
 
 EndFunc
 
-Func WritePasswordInFile($pPassword)
+Func _WritePasswordInFile($pPassword)
     ; Lese den gesamten Inhalt der Datei ein
     Local $file = FileOpen($batPath, 0) ;Lesemodus
     If $file = -1 Then
-        MsgBox(0, "Fehler", "Die Datei konnte nicht zum Lesen geöffnet werden.")
+        MsgBox(0, "Fehler", "Die Datei konnte nicht gelesen werden.")
         Return
     EndIf
 
@@ -80,7 +98,7 @@ Func WritePasswordInFile($pPassword)
 
     $file = FileOpen($batPath, 2) ;(überschreibt den alten Inhalt)
     If $file = -1 Then ;-1 = Fehlermeldung
-        MsgBox(0, "Fehler", "Die Datei konnte nicht zum Schreiben geöffnet werden.")
+        MsgBox(0, "Fehler", "Die Datei konnte nicht beschrieben werden.")
         Return
     EndIf
 
@@ -88,5 +106,4 @@ Func WritePasswordInFile($pPassword)
 
     FileClose($file)
 
-    MsgBox(0, "Erfolg", "Das Standardpasswort wurde erfolgreich geändert.")
 EndFunc

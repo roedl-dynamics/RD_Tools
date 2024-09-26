@@ -2,8 +2,10 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=Launcher.ico
 #AutoIt3Wrapper_Res_Description=Rödl Dynamics RD_Tools
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.9
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.16
+#AutoIt3Wrapper_Res_Fileversion_AutoIncrement=y
 #AutoIt3Wrapper_Res_ProductName=RD_Tools
+#AutoIt3Wrapper_Res_ProductVersion=1.0
 #AutoIt3Wrapper_Res_CompanyName=Rödl Dynamics GmbH
 #AutoIt3Wrapper_Res_LegalCopyright=Rödl Dynamics GmbH
 #AutoIt3Wrapper_Res_LegalTradeMarks=Rödl Dynamics GmbH
@@ -15,7 +17,7 @@
  Author:         myName
 
  Script Function:
-	This Tool make it easier to Use the RD-Module
+	This Tool make it easier to Use the RD-Modules
 
 #ce ----------------------------------------------------------------------------
 
@@ -48,13 +50,13 @@ Global $MaxSearchResults
 
 Global $pServiceManager = @ScriptDir & "\D365FOServiceManager.exe"
 Const $pFODevSetupTool = @ScriptDir & "\AutoD365FODevSetupTool.exe"
-
-
 Global $pLabelfinder = @ScriptDir & "\RDD_Labelfinder.exe"
+Global $pDBSync = @ScriptDir & "\DBSync.exe"
 
 Global $iDevSetup = TrayCreateItem("FODevSetUp")
 Global $iServiceManager = TrayCreateItem("ServiceManager")
 Global $iLabelfinder = TrayCreateItem("Labelfinder")
+Global $iDBSync = TrayCreateItem("Datenbank Syncronisation")
 
 Const $iExit = TrayCreateItem("Beenden")
 
@@ -83,7 +85,10 @@ Func Main()
 					MsgBox(16,"Warnung","die Labeldateien konnten nicht korrekt eingelesen werden")
 					ExitLoop
 				EndIf
-				Run($pLabelfinder)
+				Run($pLabelfinder,"",@SW_SHOWDEFAULT)
+				Main()
+			Case $iDBSync
+				Run($pDBSync,"",@SW_SHOWDEFAULT)
 				Main()
 			Case $iExit
 				clearFile()
