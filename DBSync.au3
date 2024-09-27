@@ -57,7 +57,7 @@ EndIf
 func openGUI()
 	;MsgBox(0,"","Springt in die GUI Funktion")
 	#Region ### START Koda GUI section ### Form=
-	Global $InputPasswordForm = GUICreate("Geben sie das fehlende Password ein: ", 447, 75, 258, 362)
+	Global $InputPasswordForm = GUICreate("Geben sie das Passwort für axdbadmin an: ", 447, 75, 258, 362)
 	Global $InputPasswordField = GUICtrlCreateInput("", 16, 8, 409, 21,BitOR($GUI_SS_DEFAULT_INPUT, $ES_PASSWORD))
 	Global $SafeButton = GUICtrlCreateButton("Speichern", 264, 40, 75, 25)
 	Global $CancelButton = GUICtrlCreateButton("Schließen", 352, 40, 75, 25)
