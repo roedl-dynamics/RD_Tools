@@ -34,7 +34,7 @@ Now the Launcher will open one of these Tools:
 
 <h2>Item-Source:</h2>
 Launcher-Ico: https://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Actions-media-playback-start-icon.html
-
+DBSync-Ico:  https://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/sign-sync-icon.html
 
 <h2>Edit this Script </h2>
 
