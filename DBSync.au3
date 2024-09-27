@@ -1,8 +1,8 @@
+#RequireAdmin
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_Icon=DBSync.ico
 #AutoIt3Wrapper_Res_Description=Rödl Dynamics DB Sync
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.6
-#AutoIt3Wrapper_Res_Fileversion_AutoIncrement=y
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.13
 #AutoIt3Wrapper_Res_ProductName=Rödl Dynamcs DB Sync
 #AutoIt3Wrapper_Res_ProductVersion=1.0
 #AutoIt3Wrapper_Res_CompanyName=Rödl Dynamics
@@ -23,8 +23,8 @@ exe- Icon Source: https://www.iconarchive.com/show/small-n-flat-icons-by-paomedi
 #ce ----------------------------------------------------------------------------
 
 ; Script Start - Add your code below here
-#RequireAdmin
 Opt("MustDeclareVars", 1)
+Opt("TrayAutoPause", 0)
 
 #include <File.au3>
 #include <Array.au3>
@@ -40,34 +40,34 @@ Opt("MustDeclareVars", 1)
 Local $batPath = @ScriptDir & "\DB Sync.bat"
 
 Local $sFileContent = FileRead($batPath)
-;Local $passwordRow = StringSplit($sFileContent," ")
 Local $passwordRow = StringSplit($sFileContent, " " & @CRLF, $STR_CHRSPLIT)
 
 Global $password = $passwordRow[22]
 
 if $password == "$Password" then
+	;MsgBox(0,"","Das Passwort wurde noch nicht geändert")
 	openGUI()
-	;Run(@ScriptDir & "\DB Sync.bat")
+	Run(@ScriptDir & "\DB Sync.bat")
 Else
-	ConsoleWrite("Das Platzhalter ist bereits geändert" & @CRLF)
-	;Run(@ScriptDir & "\DB Sync.bat")
+	;ConsoleWrite("Das Platzhalter ist bereits geändert" & @CRLF)
+	;MsgBox(0,"","Das Passwort wurde schon geändert")
+	Run(@ScriptDir & "\DB Sync.bat")
 EndIf
-Run(@ScriptDir & "\DB Sync.bat")
-
 
 func openGUI()
-
-
+	;MsgBox(0,"","Springt in die GUI Funktion")
 	#Region ### START Koda GUI section ### Form=
-	Global $InputPasswordForm = GUICreate("Geben sie das fehlende Password ein: ", 447, 75, 2580, 362)
+	Global $InputPasswordForm = GUICreate("Geben sie das fehlende Password ein: ", 447, 75, 258, 362)
 	Global $InputPasswordField = GUICtrlCreateInput("", 16, 8, 409, 21,BitOR($GUI_SS_DEFAULT_INPUT, $ES_PASSWORD))
 	Global $SafeButton = GUICtrlCreateButton("Speichern", 264, 40, 75, 25)
 	Global $CancelButton = GUICtrlCreateButton("Schließen", 352, 40, 75, 25)
-	GUISetState(@SW_SHOW)
 	#EndRegion ### END Koda GUI section ###
+
+	GUISetState(@SW_SHOW,$InputPasswordForm)
 
 	While 1
 		Global $nMsg = GUIGetMsg()
+
 		Switch $nMsg
 			Case $GUI_EVENT_CLOSE
 				Exit
