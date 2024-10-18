@@ -45,6 +45,7 @@ Now the Launcher will open one of these Tools:
 <ul>
   <li>Launcher-Ico: https://www.iconarchive.com/show/oxygen-icons-by-oxygen-icons.org/Actions-media-playback-start-icon.html</li>
   <li>DBSync-Ico:  https://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/sign-sync-icon.html</li>
+ <li>all other Ico sources can be found in the repositories of the individual tools</li>
 </ul>
 
 
