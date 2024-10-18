@@ -16,7 +16,7 @@ You can open it in the Systemtray: <br>
 
 Next you can select a Tool to open with the launcher or close the launcher.
 
-![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/Tools_geoeffnet.PNG.PNG) <br>
+![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/Tools_geoeffnet.PNG) <br>
 
 
 Now the Launcher will open one of these Tools:
