@@ -26,10 +26,12 @@ Now the Launcher will open one of these Tools:
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/ServiceManager_geoeffnet.PNG" width="33%" />
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/Labelfinder_geoeffnet.PNG" width="25%" />
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/D365FODevSetup_geoeffnet.PNG" width="33%" />
- <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG" width="33%"
 </p>
 
-&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;[ServiceManager](https://github.com/roedl-dynamics/D365FOServiceManager)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AutoD365FODevSetupTool](https://github.com/roedl-dynamics/AutoD365FODevSetupTool) [DBSync](https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG)
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;[ServiceManager](https://github.com/roedl-dynamics/D365FOServiceManager)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AutoD365FODevSetupTool](https://github.com/roedl-dynamics/AutoD365FODevSetupTool) 
+
+ <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG" width="33%"
+[DBSync](https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG)
 
 
                                                                                          
