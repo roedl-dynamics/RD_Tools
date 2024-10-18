@@ -35,7 +35,7 @@ Now the Launcher will open one of these Tools:
 
 <h2> DBSync: </h2>
 <p>
- the GUI of the DBSync tool only opens the first time you open it. Otherwise the batch file is executed with the specified password. If you have entered the password incorrectly, it must be changed in the batch file 
+ the GUI of the DBSync tool only opens the first time you open it. Otherwise the batch file is executed with the specified password. If you have entered the password incorrectly, it must be changed in the batch file.
 </p>
 
 
