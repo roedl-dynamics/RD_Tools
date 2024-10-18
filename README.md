@@ -32,6 +32,7 @@ Now the Launcher will open one of these Tools:
 
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG" width="33%" />
 [DBSync](https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG)
+ [DBSync](https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG).
 
 
                                                                                          
