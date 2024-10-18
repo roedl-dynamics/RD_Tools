@@ -12,11 +12,11 @@ Download the installer from the latest release. And follow the Setup Wizard.
 After installation the Tool starts in the Background.<br>
 You can open it in the Systemtray: <br>
 
-![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ImTray.PNG) <br>
+![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/Tools_Im_Tray.PNG) <br>
 
 Next you can select a Tool to open with the launcher or close the launcher.
 
-![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/RD-Tools_ge%C3%B6ffnet.PNG) <br>
+![image](https://github.com/roedl-dynamics/RD_Tools/blob/main/Tools_geoeffnet.PNG.PNG) <br>
 
 
 Now the Launcher will open one of these Tools:
