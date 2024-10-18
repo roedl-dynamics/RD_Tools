@@ -31,7 +31,7 @@ Now the Launcher will open one of these Tools:
 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;[ServiceManager](https://github.com/roedl-dynamics/D365FOServiceManager)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Labelfinder](https://github.com/roedl-dynamics/RDD-Labelfinder)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AutoD365FODevSetupTool](https://github.com/roedl-dynamics/AutoD365FODevSetupTool) 
 
  <img src="https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG" width="33%" />
- [DBSync](https://github.com/roedl-dynamics/RD_Tools/blob/main/DBSync.PNG).
+  &nbsp;&nbsp;&nbsp; DBSync
 
 
                                                                                          
